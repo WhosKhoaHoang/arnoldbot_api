@@ -3,6 +3,8 @@ from arnoldbot import ArnoldBot
 
 app = Flask(__name__)
 ab = ArnoldBot()
+#Instantiate ArnoldBot outside of response() so that the training text
+#isn't loaded everytime response is called()
 
 @app.route('/talk')
 def response():
@@ -12,4 +14,4 @@ def response():
     return jsonify(data)
 
 if __name__ == '__main__':
-  app.run(debug="True")
+  app.run(debug=False)
